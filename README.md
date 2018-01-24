@@ -23,5 +23,5 @@ Hough Transformation is a feature extraction technique, typically used for detec
 
 ### Additional Useful Commands
 
-list available virtual environments
+list available virtual environments  
 ```conda env list```
