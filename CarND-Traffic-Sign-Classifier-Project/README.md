@@ -3,7 +3,7 @@
 
 ### My Notes:
 
-+Use Lenet architecture to classify german traffic signs.  I achieved an accuracy of around 95-96% on the test set.  The process was approximately as follows
+Use Lenet architecture to classify german traffic signs.  I achieved an accuracy of around 95-96% on the test set.  The process was approximately as follows
 
 1. load the data  
 2. visualize class distribution 
