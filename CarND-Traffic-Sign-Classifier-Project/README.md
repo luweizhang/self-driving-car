@@ -5,9 +5,9 @@
 
 +Use Lenet architecture to classify german traffic signs.  I achieved an accuracy of around 95-96% on the test set.  The process was approximately as follows
 
-- 1. load the data  
-- 2. visualize class distribution 
-- 3. use data augmentation (I guess you can call this upsampling?) to resolve class imbalance and small data size (some classes have fewer than 500 examples)
+1. load the data  
+2. visualize class distribution 
+3. use data augmentation (I guess you can call this upsampling?) to resolve class imbalance and small data size (some classes have fewer than 500 examples)
 - 4. define model architecture (convolutional neural network / lenet architecture)
 - 5. train, validate and test the model using tensorflow
 - 6. analyze the model by running on some new images, examine softmax probabilities.
