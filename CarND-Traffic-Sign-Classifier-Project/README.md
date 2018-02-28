@@ -1,6 +1,18 @@
 ## Project: Build a Traffic Sign Recognition Program
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
+My Notes:
+
++Use Lenet architecture to classify german traffic signs.  I achieved an accuracy of around 95-96% on the test set.  The process was approximately as follows
++
++1. load the data 
++2. visualize class distribution 
++3. use data augmentation (I guess you can call this upsampling?) to resolve class imbalance and small data size (some classes have fewer than 500 examples)
++4. define model architecture (convolutional neural network / lenet architecture)
++5. train, validate and test the model using tensorflow
++6. analyze the model by running on some new images, examine softmax probabilities.
+
+
 Overview
 ---
 In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
