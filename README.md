@@ -2,6 +2,9 @@
 
 ### Udacity self driving car projects:
 
+### Guide to setting up tensorflow
+http://luweilikesdata.blogspot.com/2018/01/installing-tensorflow-for-cpu-and-gpu.html
+
 ### CarND-Term1-Starter-Kit-Test
 ```
 # Anaconda
