@@ -61,8 +61,9 @@ Finally, the dataset is class imbalanced.  Some of class have less than 300 exam
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-My model is a convolutional neural network based off of the LeNet architecture.  The Lenet architecture is a specific way of architecting a convolutional neural network which consists of something like the following:
+My model is a convolutional neural network based off of the LeNet architecture.  The Lenet architecture is a way of architecting a convolutional neural network which consists of a series of convlution layers, activation layers, and pooling layers, and finally a fully connected layer:
 
+Here is an example of what a RELU architecture might look like.
 INPUT => CONV => RELU => POOL => CONV => RELU => POOL => FC => RELU => FC
 
 Here are some details of my model architecture:
@@ -70,14 +71,15 @@ Here are some details of my model architecture:
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x1 Grayscale and Normalized image   							| 
-| Convolution 5x5     	| 1x1 stride, same padding, outputs 28x28x48 	|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+| Convolution 5x5     	| 1x1 stride, same padding, input = 32x32x1, output = 28x28x48 	|
+| Max pooling	      	| 2x2 stride,  Input = 28x28x48. Output = 14x14x48				|
+| Convolution 5x5	    | 1x1 stride, Output = 10x10x96    									|
+| Max pooling	      	| 2x2 stride,  Input = 10x10x96. Output = 5x5x96				|
+| Convolution 3x3	    | 1x1 stride, Output = 3x3x172									|
+| Max pooling	      	| 2x2 stride,  Input = 3x3x172. Output = 2x2x172			|
+| Flatten     	| Input = 2x2x172. Output = 688.		|
+| Fully connected		| Input = 688. Output = 84         	|
+| Fully connected		| Input = 94. Output = 43 									|
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
