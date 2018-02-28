@@ -61,13 +61,16 @@ Finally, the dataset is class imbalanced.  Some of class have less than 300 exam
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-My model is a convolutional neural network based off of the LeNet architecture.  
+My model is a convolutional neural network based off of the LeNet architecture.  The Lenet architecture is a specific way of architecting a convolutional neural network which consists of something like the following:
+
+INPUT => CONV => RELU => POOL => CONV => RELU => POOL => FC => RELU => FC
+
+Here are some details of my model architecture:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
+| Input         		| 32x32x1 Grayscale and Normalized image   							| 
+| Convolution 5x5     	| 1x1 stride, same padding, outputs 28x28x48 	|
 | Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
 | Convolution 3x3	    | etc.      									|
 | Fully connected		| etc.        									|
