@@ -1,11 +1,11 @@
 ## Project: Build a Traffic Sign Recognition Program
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-My Notes:
+### My Notes:
 
 +Use Lenet architecture to classify german traffic signs.  I achieved an accuracy of around 95-96% on the test set.  The process was approximately as follows
 +
-+1. load the data 
++1. load the data  
 +2. visualize class distribution 
 +3. use data augmentation (I guess you can call this upsampling?) to resolve class imbalance and small data size (some classes have fewer than 500 examples)
 +4. define model architecture (convolutional neural network / lenet architecture)
