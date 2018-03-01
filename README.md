@@ -2,6 +2,9 @@
 
 ### Udacity self driving car projects:
 
+### Guide to setting up tensorflow
+http://luweilikesdata.blogspot.com/2018/01/installing-tensorflow-for-cpu-and-gpu.html
+
 ### CarND-Term1-Starter-Kit-Test
 ```
 # Anaconda
@@ -22,7 +25,9 @@ Build a data pipeline to automatically detect lanes from a video feed.  Use cann
 Hough Transformation is a feature extraction technique, typically used for detecting lines from images.  It works by apply a point-to-curve transformation (A hough transformation), and then using a polling technique to find the best fit line for the given points. 
 
 ### CarND-Traffic-Sign-Classifier-Project
-Build a deep learning pipeline to classify German street signs.  Use LeNet convolutional neural net architecture.
+Build a deep learning pipeline to classify German street signs.  Use LeNet convolutional neural net architecture.  
+
+Utilize data augmentation to deal with the small and imbalanced dataset.  
 
 ### Additional Useful Commands
 
