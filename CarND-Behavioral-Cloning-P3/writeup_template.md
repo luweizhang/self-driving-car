@@ -10,7 +10,7 @@
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior 
-** test 
+- test
 * Preprocess the data.  This includes cropping the image to include only street lane and converting it grayscale.
 * Build, a convolution neural network in Keras that predicts steering angles from images.  I ended up using the architecture from the Nvidia end-to-end deep learning paper.
 http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf
