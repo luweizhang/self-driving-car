@@ -17,6 +17,7 @@ http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-
 * Train and validate the model with a training and validation set
 * Test that the model successfully drives around track one without leaving the road
 * Summarize the results with a written report
+(feature maps of the convolutions can be examined to see which features were sensitive to determining the optimal steering)
 
 
 [//]: # (Image References)
