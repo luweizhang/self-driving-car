@@ -1,4 +1,13 @@
 
+### My Notes:
+
+- We can leverage CNN architecture from nvidia end-to-end dl paper
+- data preprocessing (image cropping, shifts, rotations)
+- data augmentation (rotations, shifts, using data from left and right camera (plus an angle adjustment).)
+- use generator to define and fit model
+
+
+
 
 ### Udacity self driving car projects:
 
