@@ -5,6 +5,9 @@
 - data augmentation (rotations, shifts, using data from left and right camera (plus an angle adjustment).)  Driving from side of road back to center ("recovery driving")
 - use generator to define and fit model
 
+Additional Resources:
+- commai model: https://github.com/commaai/research/blob/master/train_steering_model.py
+
 
 # Behaviorial Cloning Project
 
