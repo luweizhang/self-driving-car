@@ -1,3 +1,11 @@
+### My Notes:
+
+- We can leverage CNN architecture from nvidia end-to-end dl paper
+- data preprocessing (image cropping, shifts, rotations)
+- data augmentation (rotations, shifts, using data from left and right camera (plus an angle adjustment).)  Driving from side of road back to center ("recovery driving")
+- use generator to define and fit model
+
+
 # Behaviorial Cloning Project
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
