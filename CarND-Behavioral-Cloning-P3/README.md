@@ -1,9 +1,7 @@
 ### My Notes:
 
-- We can leverage CNN architecture from nvidia end-to-end dl paper
-- data preprocessing (image cropping, shifts, rotations)
-- data augmentation (rotations, shifts, using data from left and right camera (plus an angle adjustment).)  Driving from side of road back to center ("recovery driving")
-- use generator to define and fit model
+To run your model in the simulator:
+```python drive.py model.h5```
 
 Additional Resources:
 - commai model: https://github.com/commaai/research/blob/master/train_steering_model.py
