@@ -1,7 +1,7 @@
 ### My Notes:
 
 To run your model in the simulator:
-```python drive.py model.h5```
+```python drive.py models/model.h5```
 
 Additional Resources:
 - commai model: https://github.com/commaai/research/blob/master/train_steering_model.py
