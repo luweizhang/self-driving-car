@@ -19,6 +19,7 @@ I will generate my training data by driving this car manually through the simula
 
 The distribution of the raw data collected (x axis is steering angle and y axis is number of observations).   As you can see, most of the data comes from instances when the car is in a neutral or near neutral position.  In order for the model to train more effectively, we might need to balance this dataset with data augmentation
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 Looking at the distribution above, you can see that the dataset is heavily skewed towards low or zero angles.  This is because during data collection, most of the simulated roads were straight roads.  This could be a problem during training if neural network does not have enough data to learn how to handle turns correctly.  To handle this problem, I threw away observations whose steer angle was under a certain threshold with a probability of p.
 
