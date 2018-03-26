@@ -149,7 +149,9 @@ model.fit_generator(train_generator, samples_per_epoch= /
 Finally I tested the performance of my car which will make steering decision based on the output of the CNN.
 The means squared loss (MSE) of the model on the validation set decreasing with each epoch during training.  After about 3 epochs, the validation loss stopped improving at around .08
 
-(more coming soon)
+![Image of Yaktocat](https://3.bp.blogspot.com/-FIXRGJJn3cI/WriI75kN-8I/AAAAAAABIDk/MNcNicM97U8PEPZPX2cfoQWL477Br5gOgCLcBGAs/s1600/Capture.PNG
+)
+
 
 # Additional Resources:
 
