@@ -23,6 +23,7 @@ The distribution of the raw data collected (x axis is steering angle and y axis 
 
 Looking at the distribution above, you can see that the dataset is heavily skewed towards low or zero angles.  This is because during data collection, most of the simulated roads were straight roads.  This could be a problem during training if neural network does not have enough data to learn how to handle turns correctly.  To handle this problem, I threw away observations whose steer angle was under a certain threshold with a probability of p.
 
+![Image of Yaktocat](https://1.bp.blogspot.com/-jt0QdTgGUPs/Wrh3An2pE1I/AAAAAAABIDU/ZNFv5FOAUe4zNtHHZCYU97by7MNnwnljwCLcBGAs/s1600/Capture.PNG)
 
 # Data Preprocessing:
 
