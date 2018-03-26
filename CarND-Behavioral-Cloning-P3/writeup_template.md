@@ -147,14 +147,9 @@ The means squared loss (MSE) of the model on the validation set decreasing with 
 
 (more coming soon)
 
-Additional Resources:
+# Additional Resources:
 
 CNN architecture used by the comma.ai team: https://github.com/commaai/research/blob/master/train_steering_model.py
 
 A paper published by NVidia describing the end-to-end deep learning approach for self driving cars:
 http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf
-
-Link to my github project:
-https://github.com/luweizhang/self-driving-car/tree/master/CarND-Behavioral-Cloning-P3
-
-Where I learned how to do this: https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013
