@@ -1,3 +1,5 @@
+# Project Summary 
+
 I am teaching a car how to drive in a 3d simulator by cloning human behavior.
 
 In this project, a convolutional neural network (CNN) is trained from the raw pixels of a car's camera feed, and eventually learns to associate this data with the correct steering angle in the training data.  The training data is gathered from human driving, with both the camera feed and steering angle being recorded during data collection.
