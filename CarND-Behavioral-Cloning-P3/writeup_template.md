@@ -33,12 +33,15 @@ After collecting the data, I performed some data preprocessing.  Because the ang
 
 
 # Data Augmentation:
-I augmented the dataset by introducing "jitter."  Jitter consists of a randomized brightness adjustment, randomized shadow, and horizon shift.  The horizon shift is used to mimick uphill or downhill situations where the horizon from the perspective of the car would change.
+I augmented the dataset by adding a randomized brightness adjustment.  In addition, images were flipped horizontally to simulate driving in the other direction.
 
-In addition, images were flipped horizontally to simulate driving in the other direction.
+Data augmentation increases the data size and helps the model generalize better when it comes time to testing time.
 
-Data augmentation increases the data size and helps the model generalize better when it comes time to test.
-(more coming soon).
+If I had more time on my hands, I would have experimented with other data augmentation techniques.  Some of the techiniques discussed in the forums include:
+- adding a horizon shift to mimicking upward and downward slopes
+- added left and right shifts along with an angle adjustment
+- adding random shadows
+- adding rotations
 
 # Model Architecture:
 The architecture of the CNN will be adapted from the NVidia paper linked above. First, I will recreate the CNN architecture developed by the NVidia team using Keras, a Python library for deep learning.  The CNN architecture consists of  three 5x5 convolution layers, followed by two 3x3 convolution layers, followed by three fully connected layers.  A RELU activation function is used in each of the fully connected layers.  During training, an Adam optimizer was used and the loss function was mean squared error (MSE).  In addition, a dropout of 20% was used.
