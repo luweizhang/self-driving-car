@@ -27,7 +27,7 @@ Build a deep learning pipeline to classify German street signs.  Use LeNet convo
 
 Utilize data augmentation to deal with the small and imbalanced dataset.  
 
-### CarND-Behavioral-Clone
+### CarND-Behavioral-Cloning
 Train a convolutional neural network using Keras to drive a car in a simulator by mimicking human behavior.  Data will be collected by driving the car in the simulator.   The final result is that the car will be able to predict the optimum steering angle given an image. 
 
 ### Additional Useful Commands
