@@ -30,6 +30,9 @@ Utilize data augmentation to deal with the small and imbalanced dataset.
 ### CarND-Behavioral-Cloning
 Train a convolutional neural network using Keras to drive a car in a simulator by mimicking human behavior.  Data will be collected by driving the car in the simulator.   The final result is that the car will be able to predict the optimum steering angle given an image. 
 
+### Advanced Lane Lines
+Build a data pipeline to detect lane lines
+
 ### Additional Useful Commands
 
 list available virtual environments  
