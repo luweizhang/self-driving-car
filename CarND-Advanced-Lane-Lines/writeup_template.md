@@ -102,7 +102,7 @@ peaks in a histogram on the bottom portion of the image and detecting nonzero pi
 
 After the pixels have been identified, a sliding windows approach is used to detect the pixels for the entire line.  
 Once all the pixels have been identified for both the left and right lanes, a best fit line is calculated using 
-a second order polynomial using np.polyfit().
+a second order polynomial using `np.polyfit()`.
 
 The vehicle center is calculated by average the x coordidinates of the left and right lane lines
 and then finding the midpoint between the two
@@ -112,9 +112,16 @@ final result.
 
 ![alt text][img4]
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### 5. Calculate radius of curvature
 
-I did this in lines # through # in my code in `my_other_file.py`
+The radius of curvature is also calculated in the `fit_lane_lines()` function described above.
+
+The formula for radius of curvature can be found here: https://www.intmath.com/applications-differentiation/8-radius-curvature.php
+
+The formula is:
+```
+curve_radius = ((1 + (2*fit[0]*y_0*y_meters_per_pixel + fit[1])**2)**1.5) / np.absolute(2*fit[0])
+```
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
