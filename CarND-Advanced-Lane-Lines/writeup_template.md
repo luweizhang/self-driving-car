@@ -36,12 +36,12 @@ We have 20 images of chessboards with 9x6=54 internal corners that we can use to
 (It is recommended that we use at least 20 images to calibrate the camera.) 
 
 First, we create a 3d array called objp which represents the 3 dimensional coordinate
-location of all the the chessboard corners. We then initialize objpoints to store the aforementioned 3d points as well as imgpoints to store the 2d chesspoint corners that we find.
+location of all the the chessboard corners. We then initialize `objpoints` to store the aforementioned 3d points as well as `imgpoints` to store the 2d chesspoint corners that we find.
 
-We use opencv to convert the images to grayscale, we then use cv2.findChessboardCorners() 
+We use opencv to convert the images to grayscale, we then use `cv2.findChessboardCorners()`
 to obtain the chessboard corners from the image. We then append these results to objpoints and imgpoints
 
-In the next step, we create an undistort() function that uses the objpoints and imgpoints that we obtained
+In the next step, we create an `undistort()` function that uses the objpoints and imgpoints that we obtained
 from the previous step to calibrate the camera.   After the camera has been calibrated, we can use the parameters 
 obtained to undistort all the road images using cv2.undistort(img, mtx, dist, None, mtx)
 
