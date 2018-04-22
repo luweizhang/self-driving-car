@@ -123,9 +123,9 @@ The formula is:
 curve_radius = ((1 + (2*fit[0]*y_0*y_meters_per_pixel + fit[1])**2)**1.5) / np.absolute(2*fit[0])
 ```
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+#### 6. Apply a reverse perspective transform to get the final result
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+After applying all the steps above, a reverse perspective transform is applied to achieve the final result, which looks something like below:
 
 ![alt text][image6]
 
@@ -133,7 +133,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+#### 1. Final video output:
 
 Here's are links to my vidoe result:
 - [github](./result.mp4)
@@ -145,4 +145,8 @@ Here's are links to my vidoe result:
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The hardest part of the project was definitely getting familiar with the different tools, such as numpy and opencv to get the desired result.  I had to experiment with countless parameters and read alot of reference materials before I could get a good grasp of how to implement the pipeline. 
+
+One issue I encountered was preventing the fitted line from "wobbling" too much across subsequent frames in the video.  I resovled this by using a moving average of the lane line pixels across the last n frames.  I implemented a class called `Line` which stores the parameter for both the left and right lane lines.
+
+
