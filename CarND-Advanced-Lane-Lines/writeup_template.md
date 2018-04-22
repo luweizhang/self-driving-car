@@ -149,4 +149,6 @@ The hardest part of the project was definitely getting familiar with the differe
 
 One issue I encountered was preventing the fitted line from "wobbling" too much across subsequent frames in the video.  I resovled this by using a moving average of the lane line pixels across the last n frames.  I implemented a class called `Line` which stores the parameter for both the left and right lane lines.
 
+This pipeline will likely fail when the road lines are not painted properly.  During my vacation to Hawaii recently, while driving around, I saw many roads which had faded road lines with newer road lines painted a few feet away from them.  Something like that would definitely confuse this software and could potentially be very dangerous. 
+
 
