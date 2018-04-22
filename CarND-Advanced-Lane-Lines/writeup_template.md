@@ -25,6 +25,7 @@ The goals / steps of this project are the following:
 [video1]: ./project_video.mp4 "Video"
 [img1]: ./output_images/undistort.png "Undistorted"
 [img2]: ./output_images/color-threshold.png "Color Thresholding"
+[img3]: ./output_images/perspective-transform.png "Perspective Transform"
 
 All the correspomding code for this writeup can be found in pipeline.ipynb
 
@@ -85,7 +86,7 @@ The code for the perspective transform in contained in the function `perspective
                      [1250, 720],[40, 720]])
  ```
  
-![alt text][image4]
+![alt text][img3]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
