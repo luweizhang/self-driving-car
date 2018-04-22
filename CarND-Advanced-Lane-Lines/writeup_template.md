@@ -24,7 +24,7 @@ The goals / steps of this project are the following:
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 [img1]: ./output_images/undistort.png "Undistorted"
-[img2]: ./output_images/color-threshold.jpg "Color Thresholding"
+[img2]: ./output_images/color-threshold.png "Color Thresholding"
 
 All the correspomding code for this writeup can be found in pipeline.ipynb
 
