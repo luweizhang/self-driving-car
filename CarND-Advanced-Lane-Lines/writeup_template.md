@@ -26,12 +26,17 @@ The goals / steps of this project are the following:
 [img1]: ./output_images/undistort.png "Undistorted"
 [img2]: ./output_images/color-threshold.png "Color Thresholding"
 [img3]: ./output_images/perspective-transform.png "Perspective Transform"
+[img4]: ./output_images/fill-lane.png "Perspective Transform"
+
 
 All the correspomding code for this writeup can be found in pipeline.ipynb
 
 ### Writeup / README
 
-### Camera Calibration
+
+### Description of Pipeline:
+
+#### 1. Camera Calibration
 
 The first step is to calibrate the camera using images of chess boards.  
 We have 20 images of chessboards with 9x6=54 internal corners that we can use to calibrate the camera
@@ -52,11 +57,25 @@ undistorted image is not immediately obvious, as most of the distortion appears 
 
 ![alt text][img1]
 
-### Pipeline (single images)
 
-#### 2. Color Thresholding
+#### 2. Perspective Transform
 
-We use color thresholding to isolate the pixels from the lane lines.
+The code for the perspective transform in contained in the function `perspective_transform`.  The source and destination points were hard coded into the function mostly through eyeballing and trial and error.  The parameters can be seen below:
+
+```
+    src = np.float32([[490, 482],[810, 482],
+                      [1250, 720],[40, 720]])
+    
+    #destination points were calculated visually.
+    dst = np.float32([[0, 0], [1280, 0], 
+                     [1250, 720],[40, 720]])
+ ```
+ 
+![alt text][img3]
+
+#### 3. Color Thresholding
+
+After applying the perspective transform, we use color thresholding to isolate the pixels from the lane lines.
 
 For the color thresholds, I isolated the "lightness" channel from the hls colorspace
 and the "blue-yellow" channel from the lab colorspace
@@ -73,26 +92,25 @@ After that, I combined the two binary maps to get the final isolated lane lines.
 You can see from the results below that the thresholds chosen do a pretty good job of isolating the lane lines 
 ![alt text][img2]
 
-#### 3. Perspective Transform
 
-The code for the perspective transform in contained in the function `perspective_transform`.  The source and destination points were hard coded into the function mostly through eyeballing and trial and error.  The parameters can be seen below:
+#### 4. Detecting the lane line pixels and fitting a line to the pixels
 
-```
-    src = np.float32([[490, 482],[810, 482],
-                      [1250, 720],[40, 720]])
-    
-    #destination points were calculated visually.
-    dst = np.float32([[0, 0], [1280, 0], 
-                     [1250, 720],[40, 720]])
- ```
- 
-![alt text][img3]
+The next step is to detect the lane lines.
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+In the function `fit_lane_lines()` , lane lines are detected by identifying 
+peaks in a histogram on the bottom portion of the image and detecting nonzero pixels in close proximity to the peaks.
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+After the pixels have been identified, a sliding windows approach is used to detect the pixels for the entire line.  
+Once all the pixels have been identified for both the left and right lanes, a best fit line is calculated using 
+a second order polynomial using np.polyfit().
 
-![alt text][image5]
+The vehicle center is calculated by average the x coordidinates of the left and right lane lines
+and then finding the midpoint between the two
+
+After the lane lines have been fit and drawn onto the image, a reverse perspective transform is applied to get the 
+final result.
+
+![alt text][img4]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
