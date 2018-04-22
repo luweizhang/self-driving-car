@@ -24,6 +24,7 @@ The goals / steps of this project are the following:
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 [img1]: ./output_images/undistort.png "Undistorted"
+[img2]: ./output_images/color-threshold.jpg "Color Thresholding"
 
 All the correspomding code for this writeup can be found in pipeline.ipynb
 
@@ -52,11 +53,24 @@ undistorted image is not immediately obvious, as most of the distortion appears 
 
 ### Pipeline (single images)
 
-#### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
+#### 2. Color Thresholding
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+We use color thresholding to isolate the pixels from the lane lines.
 
-![alt text][image3]
+For the color thresholds, I isolated the "lightness" channel from the hls colorspace
+and the "blue-yellow" channel from the lab colorspace
+
+The "lightness" from the hls channel was very useful for isolating the white lane lines and the "blue-yellow"
+channel from the lab colorspace was very good for getting the yellow lines.
+
+I had to test out a number of thresholds before I got the optimal ones.  I tested out different channels from 
+various color spaces including LUV, HSV, HLS, LAB, and I tried various gradient thresholds.  Ultimately, 
+I did not use the gradient thresholds and simply used channels from two colorspaces.
+
+After that, I combined the two binary maps to get the final isolated lane lines.
+
+You can see from the results below that the thresholds chosen do a pretty good job of isolating the lane lines 
+![alt text][img2]
 
 #### 3. Perspective Transform
 
