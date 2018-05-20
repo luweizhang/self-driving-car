@@ -31,7 +31,20 @@ Utilize data augmentation to deal with the small and imbalanced dataset.
 Train a convolutional neural network using Keras to drive a car in a simulator by mimicking human behavior.  Data will be collected by driving the car in the simulator.   The final result is that the car will be able to predict the optimum steering angle given an image. 
 
 ### Advanced Lane Lines
-Build a data pipeline to detect lane lines
+Build a data pipeline to detect lane lines from a video feed (a more advanced method compared to first project):
+
+* Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
+* Apply a distortion correction to raw images.
+* Use color transforms, gradients, etc., to create a thresholded binary image.
+* Apply a perspective transform to rectify binary image ("birds-eye view").
+* Detect lane pixels and fit to find the lane boundary.
+* Determine the curvature of the lane and vehicle position with respect to center.
+* Warp the detected lane boundaries back onto the original image.
+* Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
+
+### CarND-Vehicle-Detection
+Implement a sliding window approach to detect cars in a video feed and draw bounding boxes around them.
+
 
 ### Additional Useful Commands
 
