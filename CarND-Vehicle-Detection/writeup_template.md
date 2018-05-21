@@ -1,18 +1,20 @@
-## Writeup Template
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
-
 **Vehicle Detection Project**
 
-The goals / steps of this project are the following:
+The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
 
-* Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
-* Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
-* Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
-* Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
-* Estimate a bounding box for vehicles detected.
+The steps for creating this data pipeline are roughly as follows:
+
+1.  Perform a histogram of oriented gradients (HOG) feature 
+extraction process on a labeled training set of images.
+
+2.  Use the output of the HOG to train a supervised classifier (SVM, logistic regression, neural network, etc.) 
+
+3.  Implement a sliding window technique with windows of various 
+sizes using the trained classifier to search for vehicles in the images using the classifier.
+
+4.  Create a heat map of recurring detections.  
+Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
+
 
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
