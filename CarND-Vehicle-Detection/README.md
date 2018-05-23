@@ -63,7 +63,7 @@ A sliding window approach is taken to classifier the car in the images.   Window
 
 The overlap in the X direction and Y dierction was set to 75% while the overlap in the Y direction was set to 75%.  This pattern proved fairly effective in producing redundant true positive detections, which is useful for later on weeding out false positive detections using a heatmap strategy (explained below).
 
-![alt text][[myimage5]]
+![alt text][[myimage5]
 ---
 
 ### 4. Video Implementation and Overlapping Thresholds
