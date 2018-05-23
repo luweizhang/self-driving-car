@@ -68,27 +68,13 @@ The overlap in the X direction and Y dierction was set to 75% while the overlap 
 
 ### 4. Video Implementation and Overlapping Thresholds
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Finally, use all the steps above to process a video feed for a self driving car.
 
+A deque data structure is used to store bounding boxes from the last 12 frames of the video as it is being processed.  The final list of bounding rectangles will be generated from the last 12 frames of the video instead of just using one frame.   
 
-#### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
+The OpenCV function cv2.groupRectangles is used to group overlapping boxes together.  A threshold of 10 is used, meaning a minimum of 10 overlapping rectangles must occur before a detection is made.   Doing this serves to weed out false positives and make the model more robust, as it unlikely for more than 10 out of the last 12 frames to contain false positives detections.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
+Here's a [link to my video result](https://www.youtube.com/watch?v=VuNE1vu05aU)
 
 ---
 
