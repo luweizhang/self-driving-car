@@ -27,6 +27,7 @@ sizes using the trained classifier to search for vehicles in the images using th
 
 [myimage1]: ./output_images/dataset.png
 [myimage2]: ./output_images/hog_visualization.png
+[myimage3]: ./output_images/features.png
 
 ---
 
@@ -44,13 +45,16 @@ I explored different color spaces and different `skimage.hog()` parameters (`ori
 
 ![alt text][myimage2]
 
-#### 2. Explain how you settled on your final choice of HOG parameters.
+After generating the flattened HOG features, we normalize the features with zero mean and unit variance using scikit-learns `StandardScaler()` Below is a visualization of the features before and after this normalization process:
 
-I tried various combinations of parameters and...
+![alt text][myimage3]
+\
 
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+#### 2. Training the classifier
 
-I trained a linear SVM using...
+A number of models from sci-kit library are trained and tested to determine the optimal classifier to use on the pipeline. The models that I tried out included logistic regression, support vector machines, and a neural network (multilayered preceptron)
+
+
 
 ### Sliding Window Search
 
