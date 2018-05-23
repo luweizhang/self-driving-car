@@ -26,25 +26,33 @@ Create a overlap threshold to reject false positives.  Also estimate a bounding 
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
+[myimage1]: ./output_images/dataset.png
+
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
-
-You're reading it! testing123
-
 ### Histogram of Oriented Gradients (HOG)
 
-#### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+
+We use a method called histogram of oriented gradients to extract features from these images.  HOG is a computer vision technique that works by counting the occurrence of gradient orientation in localized portions of an image:  
+
+Before implementing the HOG feature extraction, we first read in the dataset.  Below is a visualization of some of the samples from the dataset:
+
+![alt text][myimage1]
+
+We implement a function called `extract_features` which does this.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
+
+
+The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`). 
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][image1]
+![alt text][myimage1]
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
