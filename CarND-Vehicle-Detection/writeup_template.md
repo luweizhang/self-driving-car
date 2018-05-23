@@ -1,6 +1,6 @@
-**Vehicle Detection Project**
+### Vehicle Detection Project
 
-The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
+#### The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
 
 The steps for creating this data pipeline are roughly as follows:
 
@@ -12,8 +12,7 @@ extraction process on a labeled training set of images.
 3.  Implement a sliding window technique with windows of various 
 sizes using the trained classifier to search for vehicles in the images using the classifier.
 
-4.  Create a heat map of recurring detections.  
-Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
+4.  Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
 
 
 [//]: # (Image References)
@@ -26,46 +25,44 @@ Create a overlap threshold to reject false positives.  Also estimate a bounding 
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
-## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+[myimage1]: ./output_images/dataset.png
+[myimage2]: ./output_images/hog_visualization.png
+[myimage3]: ./output_images/features.png
 
 ---
-### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
+### 1. Histogram of Oriented Gradients (HOG)
 
-You're reading it! testing123
+We use a method called histogram of oriented gradients to extract features from these images.  HOG is a computer vision technique that works by counting the occurrence of gradient orientation in localized portions of an image:  
 
-### Histogram of Oriented Gradients (HOG)
+Before implementing the HOG feature extraction, we first read in the dataset.  Below is a visualization of some of the samples from the dataset:
 
-#### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+![alt text][myimage1]
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+Using the OpenCV library, we implement a method called `extract_hog_features` which takes as input images and HOG parameters and outputs a flattened HOG feature vector for each image in the dataset.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-![alt text][image1]
+![alt text][myimage2]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+After generating the flattened HOG features, we normalize the features with zero mean and unit variance using scikit-learns `StandardScaler()` Below is a visualization of the features before and after this normalization process:
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+![alt text][myimage3]
+\
+
+### 2. Training the classifier
+
+Next, these feature vectors are combined with a label vector (1 for cars, 0 for non-cars) to be used for training the model.  The data is shuffled and split into training and test sets.   
+
+A number of models from sci-kit library are trained and tested to determine the optimal classifier to use on the pipeline. The models that I tried out included logistic regression, support vector machines, and a neural network (multilayered preceptron)
 
 
-![alt text][image2]
 
-#### 2. Explain how you settled on your final choice of HOG parameters.
-
-I tried various combinations of parameters and...
-
-#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-
-I trained a linear SVM using...
-
-### Sliding Window Search
+### 3. Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+For the sliding window search, I experimented with various sizes and 
 
 ![alt text][image3]
 
@@ -76,7 +73,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ![alt text][image4]
 ---
 
-### Video Implementation
+### 4. Video Implementation and Overlapping Thresholds
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./project_video.mp4)
@@ -104,7 +101,14 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+The most difficult parts of this project included:
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+- Figuring out an effective method for eliminating false positives.  I had to find the appropriate threshold for the model as well as tune the sliding window behavior (i.e window size, overlap percentage) to optimize for the least amount of false positives.  To further improve the model, I could build a much larger dataset by downloading more images or augmenting the dataset.
+
+- Figuring out a way to create discrete bounding boxes on each car.  I had to do alot of experimentation until I found the optimum threshold to apply to the heatmap and optimum strategy for grouping together the boxes.
+
+- Implementation of the pipeline in realtime.  Although the video was only 46 seconds, it took my laptop 31 minutes to process the video feed and detect the vehicles.   Therefore, my model would need a 40x speed up in order to run on realtime on my laptop.   Its not clear to me yet whether increased computational power could enable realtime deployment of this model
+
+
+
 
