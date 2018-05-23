@@ -14,7 +14,6 @@ sizes using the trained classifier to search for vehicles in the images using th
 
 4.  Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
 
-
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
 [image2]: ./examples/HOG_example.jpg
@@ -29,8 +28,8 @@ sizes using the trained classifier to search for vehicles in the images using th
 [myimage2]: ./output_images/hog_visualization.png
 [myimage3]: ./output_images/features.png
 [myimage4]: ./output_images/model_performance.png
+[myimage5]: ./output_images/bounding_boxes.png
 
----
 
 ### 1. Histogram of Oriented Gradients (HOG)
 
@@ -60,17 +59,11 @@ A number of models from sci-kit library are trained and tested to determine the 
 
 ### 3. Sliding Window Search
 
-#### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+A sliding window approach is taken to classifier the car in the images.   Windows of various sizes will scan the image as the classifier looks for cars.  Instead of performing the HOG feature extraction technique on each of the cars, which would be too computationally expensive, the HOG features are extracted for the entire image, then the subset of these features are fed into the classifier depending on the sliding window.
 
-For the sliding window search, I experimented with various sizes and 
+The overlap in the X direction and Y dierction was set to 75% while the overlap in the Y direction was set to 75%.  This pattern proved fairly effective in producing redundant true positive detections, which is useful for later on weeding out false positive detections using a heatmap strategy (explained below).
 
-![alt text][image3]
-
-#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
-
-![alt text][image4]
+![alt text][[myimage5]]
 ---
 
 ### 4. Video Implementation and Overlapping Thresholds
