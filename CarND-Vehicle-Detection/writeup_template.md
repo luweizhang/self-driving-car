@@ -1,4 +1,4 @@
-**Vehicle Detection Project**
+### Vehicle Detection Project
 
 The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
 
@@ -50,7 +50,7 @@ After generating the flattened HOG features, we normalize the features with zero
 ![alt text][myimage3]
 \
 
-#### 2. Training the classifier
+### 2. Training the classifier
 
 A number of models from sci-kit library are trained and tested to determine the optimal classifier to use on the pipeline. The models that I tried out included logistic regression, support vector machines, and a neural network (multilayered preceptron)
 
@@ -99,7 +99,14 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+The most difficult parts of this project included:
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+- Figuring out an effective method for eliminating false positives.  I had to find the appropriate threshold for the model as well as tune the sliding window behavior (i.e window size, overlap percentage) to optimize for the least amount of false positives.  To further improve the model, I could build a much larger dataset by downloading more images or augmenting the dataset.
+
+- Figuring out a way to create discrete bounding boxes on each car.  I had to do alot of experimentation until I found the optimum threshold to apply to the heatmap and optimum strategy for grouping together the boxes.
+
+- Implementation of the pipeline in realtime.  Although the video was only 46 seconds, it took my laptop 31 minutes to process the video feed and detect the vehicles.   Therefore, my model would need a 40x speed up in order to run on realtime on my laptop.   Its not clear to me yet whether increased computational power could enable realtime deployment of this model
+
+
+
 
