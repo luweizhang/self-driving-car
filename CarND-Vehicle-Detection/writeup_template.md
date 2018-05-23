@@ -28,6 +28,7 @@ sizes using the trained classifier to search for vehicles in the images using th
 [myimage1]: ./output_images/dataset.png
 [myimage2]: ./output_images/hog_visualization.png
 [myimage3]: ./output_images/features.png
+[myimage4]: ./output_images/model_performance.png
 
 ---
 
