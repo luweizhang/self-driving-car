@@ -1,6 +1,6 @@
 ### Vehicle Detection Project
 
-The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
+#### The goal of this project is create a data pipeline to detect vehicles on the road for a self driving car.
 
 The steps for creating this data pipeline are roughly as follows:
 
