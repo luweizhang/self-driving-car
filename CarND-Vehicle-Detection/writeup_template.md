@@ -49,7 +49,6 @@ I explored different color spaces and different `skimage.hog()` parameters (`ori
 After generating the flattened HOG features, we normalize the features with zero mean and unit variance using scikit-learns `StandardScaler()` Below is a visualization of the features before and after this normalization process:
 
 ![alt text][myimage3]
-\
 
 ### 2. Training the classifier
 
@@ -57,7 +56,7 @@ Next, these feature vectors are combined with a label vector (1 for cars, 0 for 
 
 A number of models from sci-kit library are trained and tested to determine the optimal classifier to use on the pipeline. The models that I tried out included logistic regression, support vector machines, and a neural network (multilayered preceptron)
 
-
+![alt text][myimage4]
 
 ### 3. Sliding Window Search
 
