@@ -31,7 +31,7 @@ sizes using the trained classifier to search for vehicles in the images using th
 
 ---
 
-### Histogram of Oriented Gradients (HOG)
+### 1. Histogram of Oriented Gradients (HOG)
 
 We use a method called histogram of oriented gradients to extract features from these images.  HOG is a computer vision technique that works by counting the occurrence of gradient orientation in localized portions of an image:  
 
@@ -56,7 +56,7 @@ A number of models from sci-kit library are trained and tested to determine the 
 
 
 
-### Sliding Window Search
+### 3. Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
@@ -71,7 +71,7 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ![alt text][image4]
 ---
 
-### Video Implementation
+### 4. Video Implementation and Overlapping Thresholds
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./project_video.mp4)
