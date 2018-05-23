@@ -39,7 +39,7 @@ Before implementing the HOG feature extraction, we first read in the dataset.  B
 
 ![alt text][myimage1]
 
-We implement a function called `extract_features` which does this.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
+Using the OpenCV library, we implement a method called `extract_hog_features` which takes as input images and HOG parameters and outputs a flattened HOG feature vector for each image in the dataset.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
 
 I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
@@ -51,6 +51,8 @@ After generating the flattened HOG features, we normalize the features with zero
 \
 
 ### 2. Training the classifier
+
+Next, these feature vectors are combined with a label vector (1 for cars, 0 for non-cars) to be used for training the model.  The data is shuffled and split into training and test sets.   
 
 A number of models from sci-kit library are trained and tested to determine the optimal classifier to use on the pipeline. The models that I tried out included logistic regression, support vector machines, and a neural network (multilayered preceptron)
 
