@@ -39,9 +39,7 @@ Before implementing the HOG feature extraction, we first read in the dataset.  B
 
 ![alt text][myimage1]
 
-Using the OpenCV library, we implement a method called `extract_hog_features` which takes as input images and HOG parameters and outputs a flattened HOG feature vector for each image in the dataset.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
-
-I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+Using the OpenCV library, we implement a method called `extract_hog_features` which takes as input images and HOG parameters and outputs a flattened HOG feature vector for each image in the dataset.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.  I also explored different `skimage.hog()` parameters such as (`orientations`, `pixels_per_cell`, and `cells_per_block`).
 
 ![alt text][myimage2]
 
@@ -57,11 +55,15 @@ A number of models from sci-kit library are trained and tested to determine the 
 
 ![alt text][myimage4]
 
+Although it is the slowest to predict by a factor of about 4x compared to the other classifiers, 
+the neural network / multi-layered perceptron has the highest test accuracy by a significant amount.
+It is probably the best candidate to be used in the pipeline.
+
 ### 3. Sliding Window Search
 
 A sliding window approach is taken to classifier the car in the images.   Windows of various sizes will scan the image as the classifier looks for cars.  Instead of performing the HOG feature extraction technique on each of the cars, which would be too computationally expensive, the HOG features are extracted for the entire image, then the subset of these features are fed into the classifier depending on the sliding window.
 
-The overlap in the X direction and Y dierction was set to 75% while the overlap in the Y direction was set to 75%.  This pattern proved fairly effective in producing redundant true positive detections, which is useful for later on weeding out false positive detections using a heatmap strategy (explained below).
+The overlap in the X direction and Y direction is set to 75%.  This pattern proved fairly effective in producing redundant true positive detections, which is useful for later on weeding out false positive detections using a heatmap/overlapping detection strategy (explained below).
 
 ![alt text][myimage5]
 ---
