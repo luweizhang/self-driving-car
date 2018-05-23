@@ -12,8 +12,7 @@ extraction process on a labeled training set of images.
 3.  Implement a sliding window technique with windows of various 
 sizes using the trained classifier to search for vehicles in the images using the classifier.
 
-4.  Create a heat map of recurring detections.  
-Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
+4.  Create a overlap threshold to reject false positives.  Also estimate a bounding box based on pixels detected.
 
 
 [//]: # (Image References)
@@ -27,17 +26,11 @@ Create a overlap threshold to reject false positives.  Also estimate a bounding 
 [video1]: ./project_video.mp4
 
 [myimage1]: ./output_images/dataset.png
-
-
-## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+[myimage2]: ./output_images/hog_visualization.png
 
 ---
-### Writeup / README
 
 ### Histogram of Oriented Gradients (HOG)
-
-
 
 We use a method called histogram of oriented gradients to extract features from these images.  HOG is a computer vision technique that works by counting the occurrence of gradient orientation in localized portions of an image:  
 
@@ -47,19 +40,9 @@ Before implementing the HOG feature extraction, we first read in the dataset.  B
 
 We implement a function called `extract_features` which does this.  Before extract the HOG features, I tried converting the image to various color spaces including RGB, HSV, LUV, Lab, HLS and YUV.  Through various iterations, it seems like YUV performed the best so we ended up using that in the model.
 
+I explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`). 
-
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
-
-![alt text][myimage1]
-
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
-
-
-![alt text][image2]
+![alt text][myimage2]
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -73,7 +56,7 @@ I trained a linear SVM using...
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+For the sliding window search, I experimented with various sizes and 
 
 ![alt text][image3]
 
